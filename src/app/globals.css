@@ -1,0 +1,311 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #14141a;
+  --color-surface-elevated: #1c1c24;
+  --color-foreground: #f4f4f5;
+  --color-muted: #a1a1aa;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-surface: rgba(255, 255, 255, 0.05);
+  --color-surface-hover: rgba(255, 255, 255, 0.08);
+  --color-accent: #3b82f6;
+  --color-accent-secondary: #8b5cf6;
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-mono);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    color-scheme: dark;
+  }
+
+  html.light {
+    --color-background: #f8fafc;
+    --color-surface-elevated: #ffffff;
+    --color-foreground: #18181b;
+    --color-muted: #52525b;
+    --color-border: rgba(15, 23, 42, 0.12);
+    --color-surface: rgba(255, 255, 255, 0.72);
+    --color-surface-hover: rgba(226, 232, 240, 0.8);
+    color-scheme: light;
+  }
+
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition:
+      background-color 0.5s ease,
+      color 0.5s ease;
+  }
+
+  /* Next.js dev overlay host — keep out of document flow (see vercel/next.js#70675) */
+  nextjs-portal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+  }
+
+  ::selection {
+    background-color: rgba(59, 130, 246, 0.3);
+    color: #fff;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(
+      to right,
+      #fafafa 0%,
+      #a1a1aa 50%,
+      #fafafa 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-accent {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .glow {
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.06),
+      0 0 40px -10px rgba(59, 130, 246, 0.15);
+  }
+
+  .glow-hover:hover {
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.1),
+      0 0 60px -10px rgba(59, 130, 246, 0.25);
+  }
+
+  .grid-pattern {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .radial-glow {
+    background: radial-gradient(
+      ellipse 80% 50% at 50% -20%,
+      rgba(59, 130, 246, 0.2),
+      transparent
+    );
+  }
+
+  .site-ambient-glow {
+    background:
+      radial-gradient(
+        ellipse 90% 60% at 50% -10%,
+        rgba(59, 130, 246, 0.18),
+        transparent 55%
+      ),
+      radial-gradient(
+        ellipse 50% 40% at 85% 45%,
+        rgba(139, 92, 246, 0.08),
+        transparent 55%
+      ),
+      radial-gradient(
+        ellipse 45% 35% at 10% 75%,
+        rgba(14, 165, 233, 0.07),
+        transparent 55%
+      );
+  }
+
+  .noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+
+  .showcase-section {
+    overflow-x: clip;
+  }
+
+  .showcase-swiper {
+    perspective: 1000px;
+    padding: 2rem 0 3rem;
+  }
+
+  .showcase-slide {
+    width: 800px;
+    max-width: min(800px, 90vw);
+  }
+
+  .showcase-card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 8 / 5;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.02);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.04),
+      0 32px 64px -24px rgba(0, 0, 0, 0.75),
+      0 16px 32px -16px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.5s ease;
+  }
+
+  .swiper-slide-active .showcase-card {
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.1),
+      0 40px 80px -20px rgba(0, 0, 0, 0.85),
+      0 0 60px -10px rgba(59, 130, 246, 0.2);
+  }
+
+  .showcase-card-inner {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+  }
+
+  .showcase-slider-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.02);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.06),
+      0 32px 64px -24px rgba(0, 0, 0, 0.75),
+      0 16px 32px -16px rgba(0, 0, 0, 0.5),
+      0 0 60px -10px rgba(59, 130, 246, 0.18);
+    transition:
+      box-shadow 0.5s ease,
+      border-color 0.5s ease;
+  }
+
+  .group:hover .showcase-slider-card {
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.12),
+      0 40px 80px -20px rgba(0, 0, 0, 0.85),
+      0 0 80px -10px rgba(59, 130, 246, 0.35);
+  }
+
+  .project-image-slider {
+    position: relative;
+  }
+
+  .project-screenshots-swiper {
+    overflow: visible;
+  }
+
+  .project-screenshots-swiper .swiper-slide {
+    height: auto;
+  }
+
+  html.light .site-ambient-glow {
+    background:
+      radial-gradient(
+        ellipse 90% 60% at 50% -10%,
+        rgba(14, 165, 233, 0.14),
+        transparent 55%
+      ),
+      radial-gradient(
+        ellipse 50% 40% at 85% 45%,
+        rgba(59, 130, 246, 0.08),
+        transparent 55%
+      );
+  }
+
+  html.light .grid-pattern {
+    background-image:
+      linear-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15, 23, 42, 0.06) 1px, transparent 1px);
+  }
+
+  html.light [class*="bg-[#14141a]"],
+  html.light [class*="bg-[#1a1f2e]"],
+  html.light [class*="bg-[#0d1525]"] {
+    background-color: rgba(255, 255, 255, 0.88) !important;
+  }
+
+  html.light [class*="border-white"] {
+    border-color: rgba(15, 23, 42, 0.12) !important;
+  }
+
+  html.light .text-zinc-50,
+  html.light .text-zinc-100,
+  html.light .text-zinc-200,
+  html.light .text-zinc-300,
+  html.light .text-white,
+  html.light .\!text-white,
+  html.light [class*="text-white/"] {
+    color: #18181b !important;
+  }
+
+  html.light .text-zinc-400,
+  html.light .text-zinc-500 {
+    color: #52525b !important;
+  }
+
+  html.light [class*="bg-gradient-to-r"][class*="text-white"],
+  html.light .bg-sky-500.text-white,
+  html.light .bg-sky-400.text-white,
+  html.light .bg-blue-500.text-white,
+  html.light .bg-violet-500.text-white,
+  html.light .bg-violet-600.text-white {
+    color: #ffffff !important;
+  }
+
+  html.light [class*="shadow-black"] {
+    --tw-shadow-color: rgba(15, 23, 42, 0.12) !important;
+    --tw-shadow: var(--tw-shadow-colored) !important;
+  }
+
+  .showcase-slider-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.18) 0%,
+      rgba(255, 255, 255, 0.04) 40%,
+      rgba(59, 130, 246, 0.2) 100%
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
