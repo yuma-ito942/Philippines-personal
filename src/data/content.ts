@@ -179,8 +179,45 @@ export const projects: Project[] = [
       ],
     },
     image:
-      "/product4/4.png",
-    images: [],
+      "/product4/main.png",
+    images: [
+      {
+        src: "/product4/1.png",
+        caption: "Discovery engine",
+        description:
+          "Customer logo strip and the Discover section, where teams pick their tools and get automation opportunities ranked by impact and readiness.",
+      },
+      {
+        src: "/product4/2.png",
+        caption: "Automated multi-agent builder",
+        description:
+          "Prompt- and canvas-style builder for long-horizon operational agents, guided by agent workflow patterns from production runs.",
+      },
+      {
+        src: "/product4/3.png",
+        caption: "Agent control plane",
+        description:
+          "Governance dashboard with automation health, executions, and consumption, plus tracing, RBAC, audit trails, and human-in-the-loop approvals.",
+      },
+      {
+        src: "/product4/4.png",
+        caption: "Continuous optimization loop",
+        description:
+          "Run, trace, evaluate, and train cycle that turns production runs into training data, with multi-LLM testing and evaluation integrations.",
+      },
+      {
+        src: "/product4/5.png",
+        caption: "Proven results",
+        description:
+          "Stats section highlighting 450M+ monthly agentic workflows, 4,000+ weekly sign-ups, and adoption by 65% of the Fortune 500.",
+      },
+      {
+        src: "/product4/6.png",
+        caption: "Agentic journey and footer",
+        description:
+          "Starting out, scaling up, and at-scale cards with calls to action, followed by the newsletter signup and resource links footer.",
+      },
+    ],
   },
   {
     id: "Lotz-Outdoors-eCommerce-Website",
@@ -275,28 +312,28 @@ export const projects: Project[] = [
       "/product3/main.png",
     images: [
       {
-        src: "/product1/A.webp",
-        caption: "Platform dashboard overview",
+        src: "/product3/1.png",
+        caption: "About us section",
         description:
-          "Central command view for workflows, deployments, and system health across all tenant environments.",
+          "Split image-and-text layout introducing WaterfortFronts, its mission, and its upcoming educational platform, with a clear learn-more call to action.",
       },
       {
-        src: "/product1/B.webp",
-        caption: "Workflow automation builder",
+        src: "/product3/2.png",
+        caption: "Book a stay listings",
         description:
-          "Visual editor for designing multi-step automations with conditional branching, approvals, and scheduled triggers.",
+          "Property cards showcasing short-term rentals with location, guest ratings, nightly pricing, and direct booking buttons.",
       },
       {
-        src: "/product1/C.webp",
-        caption: "Event pipeline monitoring",
+        src: "/product3/3.png",
+        caption: "Airbnb courses section",
         description:
-          "Real-time visibility into event throughput, failed deliveries, and consumer lag across the Kafka pipeline.",
+          "Course cards for the Airbnb education program, covering free guides and cash or credit strategies, with ratings and links to more courses.",
       },
       {
-        src: "/product1/D.webp",
-        caption: "Microservices architecture view",
+        src: "/product3/4.png",
+        caption: "About page and brand story",
         description:
-          "Service topology map showing bounded contexts, API gateways, and async boundaries from the monolith migration.",
+          "Full-width hero with site navigation and a Who We Are section explaining the Airbnb investment business and its hands-on approach.",
       },
     ],
   },
@@ -395,7 +432,44 @@ export const projects: Project[] = [
     },
     image:
       "/product2/main.png",
-    images: [],
+    images: [
+      {
+        src: "/product2/1.png",
+        caption: "Why choose dentalia and clinic locator",
+        description:
+          "Value highlights for nearby clinics, payment options, advanced technology, and certified dentists, plus a map-based search to find a clinic by city or postal code.",
+      },
+      {
+        src: "/product2/2.png",
+        caption: "Promotions and Google reviews",
+        description:
+          "Seasonal promotional banner with treatment discounts, followed by a review section showcasing patient Google ratings across clinics.",
+      },
+      {
+        src: "/product2/3.png",
+        caption: "Treatments and free diagnosis booking",
+        description:
+          "Scrollable treatment categories for every stage of life and a call to action to book a free AI-backed 360° diagnosis.",
+      },
+      {
+        src: "/product2/4.png",
+        caption: "Dental plan lookup for insurers and companies",
+        description:
+          "Search by insurer or employer to check dental plan coverage, with a trusted-partners logo strip of major Mexican companies.",
+      },
+      {
+        src: "/product2/5.png",
+        caption: "Dentists and patient testimonials",
+        description:
+          "Masonry layout pairing dentist profiles with verified Google testimonials from patients at different clinic locations.",
+      },
+      {
+        src: "/product2/6.png",
+        caption: "Booking CTA, newsletter, and footer",
+        description:
+          "Closing call to action with key benefits, a newsletter signup, and a footer with visit planning, treatments, company, and contact links.",
+      },
+    ],
   },
 
   {
@@ -486,22 +560,22 @@ export const projects: Project[] = [
       "/product1/main.png",
     images: [
       {
-        src: "/product3/B.webp",
-        caption: "Document ingestion pipeline",
+        src: "/product1/1.png",
+        caption: "Lifelong learning hero",
         description:
-          "Batch and streaming upload flows with OCR preprocessing and metadata extraction before AI analysis.",
+          "Brand-led hero introducing the lifelong learning concept with a bold headline and a photo collage of students.",
       },
       {
-        src: "/product3/C.webp",
-        caption: "AI contract review workspace",
+        src: "/product1/2.png",
+        caption: "Course catalog grid",
         description:
-          "Side-by-side contract view with AI-highlighted clauses, risk flags, and suggested revisions for attorneys.",
+          "Mosaic of course tiles for English, practical computing, systems development, YouTube, and digital marketing, each linking to its course page.",
       },
       {
-        src: "/product3/D.webp",
-        caption: "Human-in-the-loop validation",
+        src: "/product1/3.png",
+        caption: "Student journey steps",
         description:
-          "Review queue where legal reviewers approve, reject, or correct AI outputs before final processing.",
+          "Five-step illustrated flow from choosing a learning center to graduating, followed by a featured courses row.",
       },
     ],
   },
@@ -616,7 +690,38 @@ export const projects: Project[] = [
         },
       ],
     },
-    images: []
+    images: [
+      {
+        src: "/product6/1.png",
+        caption: "Property search dashboard",
+        description:
+          "Laptop mockup of the agent dashboard with filterable property cards showing price, agency, type, and development status.",
+      },
+      {
+        src: "/product6/2.png",
+        caption: "Property developers and AI tools",
+        description:
+          "Gradient banner inviting property developers to list on the AI MLS, followed by a section introducing the platform's integrated AI tools.",
+      },
+      {
+        src: "/product6/3.png",
+        caption: "Complete property portfolio",
+        description:
+          "Portfolio section for searching, listing, and selling properties, with category cards for developments, resales, and rentals.",
+      },
+      {
+        src: "/product6/4.png",
+        caption: "Mission, vision, and offerings",
+        description:
+          "Brand section outlining the AI MLS mission and vision, with what the platform offers to agents and to the public.",
+      },
+      {
+        src: "/product6/5.png",
+        caption: "Early access signup and footer",
+        description:
+          "Agent and developer toggle with an email signup for early access, followed by the footer with discover, services, and company links.",
+      },
+    ],
   },
   {
     id: "ghost-bed",
