@@ -42,6 +42,18 @@ function fieldClassName(hasError: boolean) {
   return `${inputClassName} ${hasError ? "border-red-400/60" : "border-white/10"}`;
 }
 
+const unavailableMessage = `The contact form is temporarily unavailable. Please email me directly at ${siteConfig.email}.`;
+
+async function readJson<T>(response: Response): Promise<T | null> {
+  const text = await response.text();
+
+  try {
+    return JSON.parse(text) as T;
+  } catch {
+    return null;
+  }
+}
+
 async function sendContactMessage(data: {
   name: string;
   email: string;
@@ -52,7 +64,10 @@ async function sendContactMessage(data: {
   if (web3formsKey) {
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
       body: JSON.stringify({
         access_key: web3formsKey,
         subject: `New contact from ${data.name}`,
@@ -63,7 +78,11 @@ async function sendContactMessage(data: {
       }),
     });
 
-    const result = (await response.json()) as { success?: boolean; message?: string };
+    const result = await readJson<{ success?: boolean; message?: string }>(response);
+
+    if (!result) {
+      throw new Error(unavailableMessage);
+    }
 
     if (!response.ok || !result.success) {
       throw new Error(result.message ?? "Failed to send message.");
@@ -72,13 +91,18 @@ async function sendContactMessage(data: {
     return;
   }
 
+  // Static exports have no server, so this route only exists under `next dev` / `next start`.
   const response = await fetch("/api/contact", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   });
 
-  const result = (await response.json()) as { error?: string };
+  const result = await readJson<{ error?: string }>(response);
+
+  if (!result) {
+    throw new Error(unavailableMessage);
+  }
 
   if (!response.ok) {
     throw new Error(result.error ?? "Failed to send message.");
