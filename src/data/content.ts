@@ -4,6 +4,8 @@ export const siteConfig = {
   tagline:
     "Senior Software Engineer with 8+ years supporting, debugging, and optimizing production SaaS and enterprise systems, including HRIS, payroll, and attendance integrations.",
   email: "erickib0211@gmail.com",
+  // Web3Forms access keys are public by design; submissions go to the email the key was created with.
+  web3formsAccessKey: "37062d74-ba2d-46ee-a661-24059b0c3249",
   phone: "+63 935 981 3980",
   location: "206 BRIARMEADOW LN VICTORIA, TX",
   availability: "I am Erick Brown",

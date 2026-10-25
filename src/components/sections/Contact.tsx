@@ -50,6 +50,10 @@ async function readJson<T>(response: Response): Promise<T | null> {
   try {
     return JSON.parse(text) as T;
   } catch {
+    console.error(
+      `Contact form: non-JSON response from ${response.url} (status ${response.status})`,
+      text.slice(0, 300),
+    );
     return null;
   }
 }
@@ -59,7 +63,8 @@ async function sendContactMessage(data: {
   email: string;
   message: string;
 }) {
-  const web3formsKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+  const web3formsKey =
+    process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || siteConfig.web3formsAccessKey;
 
   if (web3formsKey) {
     const response = await fetch("https://api.web3forms.com/submit", {
